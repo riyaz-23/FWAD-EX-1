@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laptop Specifications</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f4f8;
+      margin: 0;
+      padding: 30px 15px;
+      color: #222;
+    }
+    .card {
+      max-width: 700px;
+      margin: auto;
+      background: #fff;
+      padding: 25px 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+    }
+    h1 { text-align: center; color: #1a4d8f; margin-top: 0; }
+    h2 { color: #1a4d8f; border-bottom: 2px solid #1a4d8f; padding-bottom: 4px; }
+    table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+    th, td { text-align: left; padding: 10px; border: 1px solid #ccc; }
+    th { background: #1a4d8f; color: #fff; width: 40%; }
+    tr:nth-child(even) td { background: #f7f9fc; }
+    .note { font-size: 13px; color: #666; text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Windows Specifications of My Laptop</h1>
+
+    <h2>System Details</h2>
+    <!-- Replace the values below with your own laptop's details
+         (Settings > System > About, or run "systeminfo" in Command Prompt) -->
+    <table>
+      <tr><th>Device Name</th><td>YOUR-DEVICE-NAME</td></tr>
+      <tr><th>Processor</th><td>YOUR PROCESSOR (e.g. Intel Core i5-1235U)</td></tr>
+      <tr><th>Installed RAM</th><td>YOUR RAM (e.g. 8 GB)</td></tr>
+      <tr><th>System Type</th><td>64-bit operating system, x64-based processor</td></tr>
+      <tr><th>Windows Edition</th><td>YOUR EDITION (e.g. Windows 11 Home)</td></tr>
+      <tr><th>Windows Version</th><td>YOUR VERSION (e.g. 23H2)</td></tr>
+    </table>
+
+    <h2>Detected by Your Browser</h2>
+    <table>
+      <tr><th>Platform</th><td id="platform"></td></tr>
+      <tr><th>CPU Logical Cores</th><td id="cores"></td></tr>
+      <tr><th>Approx. Memory</th><td id="memory"></td></tr>
+      <tr><th>Screen Resolution</th><td id="screen"></td></tr>
+      <tr><th>Browser</th><td id="browser"></td></tr>
+    </table>
+
+    <p class="note">Served by a simple Python web server on port 8000.</p>
+  </div>
+
+  <script>
+    document.getElementById("platform").textContent = navigator.platform || "Not available";
+    document.getElementById("cores").textContent = navigator.hardwareConcurrency || "Not available";
+    document.getElementById("memory").textContent =
+      navigator.deviceMemory ? navigator.deviceMemory + " GB (rounded)" : "Not available";
+    document.getElementById("screen").textContent = screen.width + " x " + screen.height;
+    document.getElementById("browser").textContent = navigator.userAgent;
+  </script>
+</body>
+</html>
